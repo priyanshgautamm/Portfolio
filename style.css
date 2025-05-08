@@ -202,8 +202,10 @@ h2 {
         padding-bottom: 1px; 
     }
     .circle{
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        right: 50px;
     }
     .imageBox{
         width: 200px;
@@ -211,8 +213,8 @@ h2 {
         overflow: hidden;
         mix-blend-mode: multiply;
         position: absolute;
-        top: 30%;
-        left: 6%;
+        bottom: 33%;
+        left: 5%;
     }
     .image_reveal{
         display: block;
@@ -265,6 +267,8 @@ h2 {
         top: 0px;
         /* display: none; */
         left: -200px;
+        position: absolute;
+        right: 50px;
         width: 150px;
         height: 150px;
     }
@@ -274,8 +278,8 @@ h2 {
         overflow: hidden;
         mix-blend-mode: multiply;
         position: absolute;
-        top: 30%;
-        left: 30%;
+        bottom: 33%;
+        left: 6%;
     }
     .image_reveal{
         display: block;
@@ -288,3 +292,5 @@ h2 {
         background-color: #fff;
     }
 }
+
+
