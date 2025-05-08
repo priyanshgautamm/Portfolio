@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Animated Morphing Gradients</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+
+
+    <!-- Font code from Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Peta:wght@100..900&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        html,
+        body {
+            font-family: 'Dongle', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-container {
+            z-index: 100;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            font-size: 96px;
+            color: white;
+            opacity: 0.8;
+            user-select: none;
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        :root {
+            --color1: 255, 111, 41;
+            --color2: 255, 111, 41;
+            --color3: 255, 111, 41;
+            --color4: 255, 111, 41;
+            --color5: 255, 111, 41;
+            --color-interactive: 255, 111, 41;
+            --circle-size: 80%;
+            --blending: hard-light;
+        }
+
+        @keyframes moveInCircle {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(180deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes moveVertical {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(50%);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                transform: translateX(-50%) translateY(-10%);
+            }
+
+            50% {
+                transform: translateX(50%) translateY(10%);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(-10%);
+            }
+        }
+
+        .gradient-bg {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #f6f6f6;
+            top: 0;
+            left: 0;
+        }
+
+        .gradient-bg svg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .gradients-container {
+            filter: url(#goo) blur(40px);
+            width: 100%;
+            height: 100%;
+        }
+
+        .g1 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+            transform-origin: center center;
+            animation: moveVertical 30s ease infinite;
+            opacity: 1;
+        }
+
+        .g2 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+            transform-origin: calc(50% - 400px);
+            animation: moveInCircle 20s reverse infinite;
+            opacity: 1;
+        }
+
+        .g3 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2 + 200px);
+            left: calc(50% - var(--circle-size) / 2 - 500px);
+            transform-origin: calc(50% + 400px);
+            animation: moveInCircle 40s linear infinite;
+            opacity: 1;
+        }
+
+        .g4 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: var(--circle-size);
+            height: var(--circle-size);
+            top: calc(50% - var(--circle-size) / 2);
+            left: calc(50% - var(--circle-size) / 2);
+            transform-origin: calc(50% - 200px);
+            animation: moveHorizontal 40s ease infinite;
+            opacity: 0.7;
+        }
+
+        .g5 {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: calc(var(--circle-size) * 2);
+            height: calc(var(--circle-size) * 2);
+            top: calc(50% - var(--circle-size));
+            left: calc(50% - var(--circle-size));
+            transform-origin: calc(50% - 800px) calc(50% + 200px);
+            animation: moveInCircle 20s ease infinite;
+            opacity: 1;
+        }
+
+        .interactive {
+            position: absolute;
+            background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+            mix-blend-mode: var(--blending);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.7;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px 60%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .circle-text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle-text span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform-origin: 0 -160px;/\* Adjust radius here \*/ transform: rotate(calc(360deg / 37 \* var(--i))) translateX(-50%);
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #222;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="gradient-bg">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                        result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+
+    <div class="overallWindow"
+        style="font-family: Lexend Peta, sans-serif; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;">
+        <!-- Landinf bar Starts here -->
+        
+
+        <div class="imageBox">
+                 <img src="image.jpg" class="image_reveal" alt="">
+        </div>
+        <nav>
+            <div class="logo">index.html</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"><a href="Resume-Priyansh.pdf" style="color: #000; text-decoration: none;"
+                        target="_blank">resume</a></span>
+            </div>
+        </nav>
+
+        
+
+
+        <div class="landing-page-container">
+            <div class="headline">Hi, I'm <span>Priyansh Gautam</span> — <br>
+                the next big thing since Ctrl + C, Ctrl + V.</div>
+            <div class="sub-headline">Developer. Designer. Debugger. Procrastinator. All-in-one masterpiece (some
+                assembly required).</div>
+            <span class="land-cta">See what nonsense I’ve been up to →</span>
+
+
+
+
+            <!-- Image reaveal animation here-->
+
+
+
+
+
+
+
+            <!-- <div class="about_section"></div> -->
+        </div>
+
+
+
+
+        <div class="circle">
+            <img src="landing_page_text.png">
+            <!-- <div class="circle-text">
+    <span style="--i:0">Y</span>
+    <span style="--i:1">e</span>
+    <span style="--i:2">s</span>
+    <span style="--i:3">,</span>
+    <span style="--i:4"> </span>
+    <span style="--i:5">t</span>
+    <span style="--i:6">h</span>
+    <span style="--i:7">i</span>
+    <span style="--i:8">s</span>
+    <span style="--i:9"> </span>
+    <span style="--i:10">i</span>
+    <span style="--i:11">s</span>
+    <span style="--i:12"> </span>
+    <span style="--i:13">m</span>
+    <span style="--i:14">y</span>
+    <span style="--i:15"> </span>
+    <span style="--i:16">F</span>
+    <span style="--i:17">i</span>
+    <span style="--i:18">r</span>
+    <span style="--i:19">s</span>
+    <span style="--i:20">t</span>
+    <span style="--i:21"> </span>
+    <span style="--i:22">F</span>
+    <span style="--i:23">i</span>
+    <span style="--i:24">n</span>
+    <span style="--i:25">a</span>
+    <span style="--i:26">l</span>
+    <span style="--i:27"> </span>
+    <span style="--i:28">P</span>
+    <span style="--i:29">o</span>
+    <span style="--i:30">r</span>
+    <span style="--i:31">t</span>
+    <span style="--i:32">f</span>
+    <span style="--i:33">o</span>
+    <span style="--i:34">l</span>
+    <span style="--i:35">i</span>
+    <span style="--i:36">o</span>
+  </div> -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Landing bar ends here -->
+
+
+        <!-- About Section Starts here -->
+
+
+
+
+
+
+
+
+        <!-- about section ends here  -->
+
+
+    </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const interactive = document.querySelector('.interactive');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            interactive.style.left = `${x}px`;
+            interactive.style.top = `${y}px`;
+        });
+    });
+
+</script>
+<script src="script.js"></script>
+
+</html>
