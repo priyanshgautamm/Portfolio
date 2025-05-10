@@ -1,0 +1,185 @@
+.des_img_memes{
+    width: 50px;
+    height: 50px;
+    top: -50px;
+}
+*{
+    /* outline: 1px solid red; */
+}
+.shaktiman{
+    width: 100px;
+    height: 100px;
+}
+.tiktok{
+    width: 50px;
+
+}
+.rotate_title_abt{
+    width: 40vw;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* transform: rotate(-90deg); */
+    /* background-color: blueviolet; */
+    /* padding-top: 100px; */
+}
+.sec_des img{   
+    position: relative;
+    display: none;
+
+}
+
+.sarcasm_alert{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    backdrop-filter: blur(5px);
+    display: none;
+    /* display: inline-flex; */
+}
+.sarcasm_box{
+    width: 500px;
+    /* height: 500px; */
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px;
+}
+.sarcasm_title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+.sarcasm_des{
+    font-size: 18px;
+    letter-spacing: -2px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    padding: 0 40px;
+}
+.yes_sar{
+    width: 300px;
+    height: 50px;
+    background-color: #ff6113;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    /* position: relative;
+    bottom: -20px; */
+}
+
+
+.menu_container{
+    position: fixed;
+    top: 0;
+    z-index: 1000000000;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    backdrop-filter: blur(5px);
+}
+.menu_box{
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+
+    /* display: flex; */
+    /* align-items: flex-end; */
+    /* justify-items: center; */
+}
+.menu_box_des{
+    /* width: 100%; */
+    /* margin-bottom: 100px; */
+    /* position: absolute; */
+    /* bottom: 10%; */
+    margin-top: 100px;
+    position: absolute;
+    width: 100%;
+    bottom: 70px;
+    /* transform: translate(0%, -100%); */
+}
+.menu_elements{
+    color: #000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* outline: 1px solid #000; */
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    padding-left: 10%;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+    
+    /* margin-top: 50%; */
+    /* transform: translate(-50%, 0%); */
+}
+
+
+ .hover-ripple {
+      position: relative;
+      
+      /* background-color: #00796b; */
+      /* color: white; */
+      
+      /* font-size: 18px; */
+      /* border-radius: 12px; */
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      pointer-events: none;
+      transform: scale(0);
+      animation: ripple-in 0.6s forwards;
+    }
+
+    .ripple.out {
+      animation: ripple-out 0.3s forwards;
+    }
+
+    @keyframes ripple-in {
+      to {
+        transform: scale(3.5);
+        opacity: 1;
+      }
+    }
+
+    @keyframes ripple-out {
+      from {
+        transform: scale(3.5);
+        opacity: 1;
+      }
+      to {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
