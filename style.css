@@ -358,7 +358,8 @@ nav {
     font-size: 50px;
     letter-spacing: -12px;
     font-weight: 700;
-    margin-left: 60px;
+    line-height: 60px;
+    margin-left: -8px;
     width: 100%;
     margin-top: 70px;
     margin-bottom: 600px;
@@ -378,11 +379,12 @@ nav {
   }
 
   .sec_des {
-    font-size: 16px;
+    font-size: 15px;
     /* font-family: 'Lexend'; */
     color: #646464;
     /* padding-top: 100px; */
     padding: 70px;
+    padding-left: 40px;
     width: 80%;
     letter-spacing: -2.8px;
     /* mix-blend-mode: difference; */
